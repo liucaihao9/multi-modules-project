@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liucaihao.mapper.QuotaCalcLogMapper">
+  <resultMap id="BaseResultMap" type="com.liucaihao.domain.QuotaCalcLog">
+    <result column="quota_name" jdbcType="VARCHAR" property="quotaName" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="application_name" jdbcType="VARCHAR" property="applicationName" />
+    <result column="enterprise_code" jdbcType="VARCHAR" property="enterpriseCode" />
+    <result column="err_msg" jdbcType="VARCHAR" property="errMsg" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="stage" jdbcType="VARCHAR" property="stage" />
+  </resultMap>
+  <insert id="insert" parameterType="com.liucaihao.domain.QuotaCalcLog">
+    insert into DAS_QUOTA_CALC_LOG (quota_name, start_date, end_date, 
+      url, application_name, enterprise_code, 
+      err_msg, create_time, stage
+      )
+    values (#{quotaName,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{url,jdbcType=VARCHAR}, #{applicationName,jdbcType=VARCHAR}, #{enterpriseCode,jdbcType=VARCHAR}, 
+      #{errMsg,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{stage,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liucaihao.domain.QuotaCalcLog">
+    insert into DAS_QUOTA_CALC_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="quotaName != null">
+        quota_name,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="applicationName != null">
+        application_name,
+      </if>
+      <if test="enterpriseCode != null">
+        enterprise_code,
+      </if>
+      <if test="errMsg != null">
+        err_msg,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="stage != null">
+        stage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="quotaName != null">
+        #{quotaName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationName != null">
+        #{applicationName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseCode != null">
+        #{enterpriseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stage != null">
+        #{stage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
