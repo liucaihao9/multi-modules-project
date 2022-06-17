@@ -26,7 +26,7 @@
     <properties>
         <mybatis.version>1.1.1</mybatis.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
-        <fastjson-version>1.2.16</fastjson-version>
+        <fastjson-version>1.2.83</fastjson-version>
         <mysql-connector.version>5.1.25</mysql-connector.version>
     </properties>
 
